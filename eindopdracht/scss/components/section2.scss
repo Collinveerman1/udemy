@@ -1,0 +1,96 @@
+@use '../abstracts/variables';
+@use "../abstracts/mixins";
+@use "../abstracts/colors";
+
+
+.secondSection {
+  width: 100%;
+  max-width: 135rem;
+  @include mixins.marginLR;
+  @include mixins.paddingLR;
+
+  &__h2 {
+    font-size: map-get(variables.$fontSize, 'fontsize1');
+    font-family: map-get(variables.$fontVars, 'SansFont');
+  }
+
+  &__p {
+    font-size: 1.9rem;
+    margin: 1.5rem 0 0;
+  }
+
+  &__gameNaam {
+    display: flex;
+    list-style: none;
+    gap: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: map-get(variables.$fontSize, 'fontsize3');
+    font-weight: 600;
+    color: colors.$info__gameNaam;
+    font-family: map-get(variables.$fontVars, 'SansFont');
+  }
+}
+
+.gamebox {
+  display: block;
+  margin-bottom: 3.2rem;
+  border: colors.$info__gameboxborder;
+  padding: 3.2rem;
+  padding-top: 2.5rem;
+
+  &__h2 {
+    font-size: map-get(variables.$fontSize, 'fontsize1');
+    font-family: map-get(variables.$fontVars, 'SansFont');
+  }
+
+  &__p {
+    overflow: hidden;
+    margin-bottom: 2rem;
+    max-width: 80rem;
+    font-weight: 500;
+    font-size: map-get(variables.$fontSize, 'fontsize3');
+  }
+
+  &__button {
+    background-color: transparent;
+    border: colors.$info__button;
+    box-sizing: border-box;
+    color: map-get(variables.$colorVars, 'black');
+    cursor: pointer;
+    display: inline-block;
+    font-size: map-get(variables.$fontSize, 'fontsize3');
+    font-weight: 600;
+    line-height: normal;
+    min-height: 6rem;
+    outline: none;
+    padding: 1.7rem 2.4rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    touch-action: manipulation;
+    width: 20rem;
+    will-change: transform;
+
+    &:hover {
+      color: map-get(variables.$colorVars, 'white');
+      background-color: colors.$info__buttonhover;
+      box-shadow: rgba(0, 0, 0, 0.25) 0 0.8rem 1.5rem;
+      transform: translateY(-0.2rem);
+    }
+
+    &:active {
+      box-shadow: none;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media screen and (max-width:1500px) {
+  .secondSection{
+      &__gameNames{
+          flex-wrap: wrap;
+      }
+  }
+}

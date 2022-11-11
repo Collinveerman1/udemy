@@ -1,0 +1,75 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/colors";
+
+.seventhSection {
+    width: 100%;
+    max-width: 135rem;
+    @include mixins.marginLR;
+    padding-right: 4.3rem;
+    padding-left: 4.3rem;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+
+    &__logo {
+        width: 22rem;
+        list-style: none;
+    }
+
+    &__wrapper {
+        width: 100%;
+        height: 60rem;
+        background: map-get(variables.$colorVars, 'background');
+        @include mixins.flexCenter;
+        padding: 4rem;
+        flex-direction: column;
+        box-shadow: colors.$business__boxshadow;
+        font-family: map-get(variables.$fontVars, 'SansFont');
+    }
+
+    &__h2 {
+        @include mixins.flexCenter;
+        font-size: map-get(variables.$fontSize, 'fontsize0');
+        text-align: center;
+    }
+
+    &__h3 {
+        @include mixins.flexCenter;
+        font-size: map-get(variables.$fontSize, 'fontsize0');
+        padding-top: 3rem;
+    }
+
+    &__h4 {
+        @include mixins.flexCenter;
+        font-size: map-get(variables.$fontSize, 'fontsize3');
+        padding-top: 3rem;
+        width: 20;
+        text-align: center;
+    }
+
+    &__text {
+        padding-top: 1.5rem;
+        font-size: map-get(variables.$fontSize, 'fontsize3');
+        list-style: none;
+    }
+}
+
+@media screen and (max-width:1500px) {
+    .seventhSection {
+        flex-direction: column;
+
+        &__wrapper {
+            flex-wrap: wrap;
+            flex-grow: 1;
+        }
+
+        &__h2 {
+            flex-wrap: wrap;
+        }
+
+        &__h3 {
+            flex-wrap: wrap;
+        }
+    }
+
+}

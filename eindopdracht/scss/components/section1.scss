@@ -1,0 +1,86 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/colors";
+
+.firstSection {
+    width: 100%;
+    @include mixins.flexCenter;
+
+    &__section {
+        @include mixins.flexCenterLite;
+        max-width: 134rem;
+        margin-bottom: 4.8rem;
+    }
+
+    &__banner {
+        width: 100%;
+        padding-top: 2rem;
+        box-shadow: colors.$banner__boxshadow;
+        @include mixins.flexCenter;
+    }
+
+    &__textWrapper {
+        position: absolute;
+        box-shadow: colors.$banner__textboxshadow;
+        left: 25rem;
+        top: 16rem;
+        padding: 2.5rem;
+        max-width: 40rem;
+        flex-direction: column;
+        @include mixins.flexCenter;
+    }
+
+    &__h2 {
+        font-size: map-get(variables.$fontSize, 'fontsize0');
+        font-family: map-get(variables.$fontVars, 'SansFont');
+    }
+
+    &__p {
+        font-size: map-get(variables.$fontSize, 'fontsize2');
+        font-family: map-get(variables.$fontVars, 'SansFont');
+    }
+}
+
+@media screen and (max-width:1500px) {
+    .firstSection {
+        &__textWrapper {
+            left: 20rem;
+            top: 16rem;
+        }
+    }
+}
+
+@media screen and (max-width:1450px) {
+    .firstSection {
+        &__textWrapper {
+            left: 13rem;
+            top: 16rem;
+        }
+    }
+}
+
+@media screen and (max-width:1350px) {
+    .firstSection {
+        &__textWrapper {
+            left: 8rem;
+            top: 16rem;
+        }
+    }
+}
+
+@media screen and (max-width:1150px) {
+    .firstSection {
+        &__textWrapper {
+            left: 4rem;
+            top: 13rem;
+        }
+    }
+}
+
+@media screen and (max-width:950px) {
+    .firstSection {
+        &__textWrapper {
+            display: none;
+        }
+    }
+}

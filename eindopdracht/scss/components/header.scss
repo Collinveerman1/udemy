@@ -1,0 +1,164 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/colors";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 5rem;
+    gap: 1.3rem;
+    padding: 1.2rem;
+    font-family: map-get(variables.$fontVars, "SansFont");
+    box-shadow: colors.$header__boxshadow;
+    list-style: none;
+
+    &__logo {
+        width: 8.5rem;
+        list-style: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__textItem {
+        font-size: 1.4rem;
+        white-space: nowrap;
+
+        &:hover {
+            color: colors.$header__textItemHover;
+            cursor: pointer;
+        }
+    }
+
+    &__zoekbalk {
+        background-color: darken(#fff, 3%);
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 8rem;
+        min-width: 50%;
+        padding: 1.2rem;
+        border-radius: 10rem;
+        gap: 1.2rem;
+        border: 0.1rem solid black;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__zoekbalkInput {
+        border: none;
+        background-color: darken(white, 3%);
+        width: 100%;
+        height: 2.5rem;
+    }
+
+    &__winkelwagen {
+        font-size: 155%;
+
+        &:hover {
+            color: colors.$header__winkelwagenHover;
+        }
+    }
+
+    &__iconwinkelwagen {
+        font-size: 130%;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__iconGlobe {
+        font-size: 190%;
+        background: map-get(variables.$colorVars, 'background');
+        border: 1px solid #000000;
+        padding: 0 1.3rem;
+        height: 4rem;
+        @include mixins.flexCenter;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: 1.4rem;
+    }
+
+    &__login {
+        text-align: center;
+        text-decoration: none;
+        background: map-get(variables.$colorVars, 'background');
+        border: colors.$header__buttonBorder;
+        padding: 0 1.4rem;
+        height: 4rem;
+        font-weight: 600;
+        @include mixins.flexCenter;
+
+        &:hover {
+            background: map-get(variables.$colorVars, 'background');
+            cursor: pointer;
+        }
+    }
+
+    &__signIn {
+        text-align: center;
+        text-decoration: none;
+        color: map-get(variables.$colorVars, 'white');
+        background: #202020;
+        border: colors.$header__buttonBorder;
+        padding: 0 1.4rem;
+        height: 4rem;
+        font-weight: 600;
+        @include mixins.flexCenter;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+}
+
+@media screen and (max-width:1500px) {
+    .header__textItem {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1350px) {
+    .header__iconGlobe {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1250px) {
+    .header__iconwinkelwagen {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1150px) {
+    .header__textItem {
+        display: none;
+    }
+}
+
+@media screen and (max-width:950px) {
+
+    .header {
+        justify-content: space-between;
+
+        .header__zoekbalk {
+            display: none;
+        }
+
+        .header__textItem {
+            display: none;
+        }
+    }
+}

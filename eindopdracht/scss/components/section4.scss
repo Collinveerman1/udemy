@@ -1,0 +1,109 @@
+@use '../abstracts/variables';
+@use "../abstracts/mixins";
+@use "../abstracts/colors";
+
+.fourthSection {
+  width: 100%;
+  max-width: 140rem;
+  @include mixins.marginLR;
+  @include mixins.paddingLR;
+  display: flex;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.gamecard {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 40rem;
+  margin: 1rem;
+  overflow: hidden;
+  box-shadow: colors.$cards__gamecardboxshadow;
+  font-family: map-get(variables.$fontVars, 'SansFont');
+
+  &__img {
+    height: 70%;
+  }
+
+  &__btn {
+    position: absolute;
+    color: map-get(variables.$colorVars, 'black');
+    right: 2.5rem;
+    bottom: 5%;
+    width: 15rem;
+    height: 3.5rem;
+    border: colors.$cards__buttonborder;
+    text-decoration: none;
+    background: map-get(variables.$colorVars, 'background');
+  }
+
+  &__background {
+    background-image: colors.$cards__background;
+    position: absolute;
+    top: 55%;
+    left: -0.5rem;
+    height: 65%;
+    width: 108%;
+  }
+
+  &__icon {
+    height: 8rem;
+    width: 8rem;
+    border-radius: 2rem;
+    background: map-get(variables.$colorVars, 'background');
+    position: absolute;
+    bottom: 30%;
+    left: 3rem;
+    overflow: hidden;
+    box-shadow: colors.$cards__iconboxshadow;
+  }
+
+  &__Icon {
+    height: 100%;
+  }
+
+  &__rating {
+    position: absolute;
+    color: colors.$cards__rating;
+    left: 3rem;
+    bottom: 10%;
+    font-size: 2rem;
+  }
+
+  &__info {
+    position: absolute;
+    color: map-get(variables.$colorVars, 'black');
+    font-weight: 900;
+    left: 15rem;
+    bottom: 26%;
+    font-size: map-get(variables.$fontSize, 'fontsize3');
+    width: 25ch;
+    border-bottom: colors.$cards__info;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: map-get(variables.$fontVars, 'SansFont');
+    font-weight: 600;
+    color: map-get(variables.$colorVars, 'black');
+    }
+}
+
+@media screen and (max-width:950px) {
+  .fourthSection {
+    flex-wrap: wrap;
+  }
+
+  .gamecard{
+    flex-grow: 1;
+
+    &__rating{
+      display: none;
+    }
+  }
+}

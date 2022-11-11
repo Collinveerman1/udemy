@@ -1,0 +1,48 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/colors";
+
+.thirdSection {
+    
+    &__figureWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-bottom: 6.4rem;
+        margin-top: 6.4rem;
+        background: colors.$wrapper__color;
+        position: relative;
+        padding: 2.4rem 0;
+        font-family: map-get(variables.$fontVars, 'SansFont');
+    }
+
+    &__itemWrapper {
+        font-weight: 600;
+        line-height: 1.4;
+        font-size: 1.6rem;
+        color: colors.$wrapper__itemcolor;
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    &__icon {
+        background: colors.$wrapper__iconcolor;
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        @include mixins.flexCenter;
+    }
+
+    &__textWrapper {
+        max-width: 28.8rem;
+    }
+}
+
+@media screen and (max-width:1500px) {
+    .thirdSection{
+        &__figureWrapper{
+            flex-wrap: wrap;
+        }
+    }
+}
